@@ -151,11 +151,11 @@ tokenAge = calculateAge(tokenCreationDate)
 
   return (
     <div
-      className="bg-[#18162099]/60 rounded-[10px] backdrop-filter h-full backdrop-blur-sm w-[460px] mx-auto jost text-white"
+      className="bg-[#18162099]/60 rounded-[10px] backdrop-filter h-[90%] backdrop-blur-sm w-[460px] mx-auto jost text-white"
       style={{ boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.5)' }}
     >
     {
-      !ercerror &&  <> <div className="bg-[#181B2E] rounded-t-[10px] p-[15px] px-[20px]">
+      !ercerror &&  <> <div className="bg-[#181B2E] rounded-t-[10px] p-[5px] px-[20px]">
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
           {/* Skeleton for Avatar and Token Name */}
@@ -206,7 +206,7 @@ tokenAge = calculateAge(tokenCreationDate)
       </p>
     </div>
 
-    <div className="p-[20px]">
+    <div className="px-[20px] pt-[20px]">
       <div className="flex items-center justify-between h-full">
         {/* Status and Report */}
         {loading ? (
@@ -223,7 +223,7 @@ tokenAge = calculateAge(tokenCreationDate)
         )}
       </div>
 
-      <div className="border-b-2 border-white/10 my-5 self-stretch"></div>
+      <div className="border-b-2 border-white/10 my-1 self-stretch"></div>
 
       {/* Info Section */}
       {loading ? (
@@ -241,7 +241,7 @@ tokenAge = calculateAge(tokenCreationDate)
       )}
 
       {/* Honeypot Status Display */}
-      <div className="text-center text-lg mt-4">
+      <div className="text-center text-lg mt-2">
         {loading ? <Skeleton width={200} height={30} /> : <p>{honeypotStatus}</p>}
       </div>
     </div>
