@@ -239,9 +239,9 @@ tokenAge = calculateAge(tokenCreationDate)
       )}
 
       {/* Honeypot Status Display */}
-      <div className="text-center text-lg mt-2">
+      {/* <div className="text-center text-lg mt-2">
         {loading ? <Skeleton width={200} height={30} /> : <p>{honeypotStatus}</p>}
-      </div>
+      </div> */}
     </div>
     </>
     }
