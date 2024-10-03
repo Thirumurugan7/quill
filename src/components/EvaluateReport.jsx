@@ -204,7 +204,7 @@ tokenAge = calculateAge(tokenCreationDate)
       </p>
     </div>
 
-    <div className="px-[20px] pt-[20px]">
+    <div className="px-[20px] pt-[20px] pb-[10px]">
       <div className="flex items-center justify-between h-full">
         {/* Status and Report */}
         {loading ? (
