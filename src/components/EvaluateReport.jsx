@@ -178,12 +178,10 @@ tokenAge = calculateAge(tokenCreationDate)
           {loading ? (
             <Skeleton height={30} width={80} />
           ) : (
-            <button
-              onClick={onBackClick}
-              className="bg-[#007AFF] hover:bg-[#007AFF]/70 rounded-[5px] text-white p-1 px-6 text-base border-y border-y-[#86AFFF]"
-            >
-              Back
-            </button>
+          
+<div className='border p-1 rounded'>
+<img onClick={onBackClick} src={"https://cdn.iconscout.com/icon/premium/png-256-thumb/back-arrow-9601866-8212676.png?f=webp&w=256"} className='w-5 h-5' alt="" />
+</div>
           )}
         </div>
       </div>
