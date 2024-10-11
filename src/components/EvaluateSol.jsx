@@ -151,7 +151,7 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
                             {loading ? <Skeleton width={150} /> : tokenAddress || 'Enter Token Address'}
                         </p>
                     </div>
-                    <div className="p-[20px] flex">
+                    <div className="p-[20px] flex items-center">
                         <div className=" items-center h-full">
                             {loading ? (
                                 <>
