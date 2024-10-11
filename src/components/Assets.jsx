@@ -1,8 +1,10 @@
 import QuillCheckLogo from "../assets/QuillCheckLogo.png";
 import ETH from "../assets/icons/ETH.png"
 import BSC from "../assets/icons/BSC.png"
-import Polygon from "../assets/icons/Polygon.png"
+import POL from "../assets/icons/Polygon.png"
 import Base from "../assets/icons/Base.png"
+import SOL from "../assets/icons/Solana.svg"
+import Honeypot from "../assets/icons/honeypot.svg"
 import QuillAI from "../assets/QuillAINetworkLogo.png"
 import Avatar from "../assets/Avatar.png"
 import Token from "../assets/icons/Token.png"
@@ -12,13 +14,16 @@ import Exclamatory from "../assets/icons/Exclamatory.png"
 import Shield from "../assets/icons/Shield.png"
 import X from "../assets/icons/X.png"
 import XVoilet from "../assets/icons/XVoilet.png"
+import ThumbUp from "../assets/icons/Thumbup.svg"
 
 const Assets = {
   QuillCheckLogo,
   ETH,
   BSC,
-  Polygon,
+  POL,
   Base,
+  SOL,
+  Honeypot,
   QuillAI,
   Avatar,
   Token,
@@ -27,7 +32,8 @@ const Assets = {
   Exclamatory,
   Shield,
   X,
-  XVoilet
+  XVoilet,
+  ThumbUp
 };
 
 export default Assets;
