@@ -28,11 +28,13 @@ const SelectToken = ({ onCheckClick, setSelectedToken, setTokenAddress, setChain
   };
 
   const handleInputChange = (e) => {
-    const lowercasedValue = e.target.value.toLowerCase(); // Convert input to lowercase
+    const inputValue = e.target.value;
+    const lowercasedValue = selectedButton === 5 ? inputValue : inputValue.toLowerCase(); 
     setInputValue(lowercasedValue);
-    setTokenAddress(lowercasedValue); // Update token address
+    setTokenAddress(lowercasedValue); 
     setempty(false);
-  };  
+  };
+    
 
   return (
     <div

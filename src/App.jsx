@@ -41,7 +41,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-cover bg-center bricolage-font pb-6 bg-custom-bg jost flex justify-center items-center pt-3">
+    <div className="min-h-screen bg-cover bg-center bricolage-font bg-custom-bg jost flex justify-center items-center">
       <div className="p-3 space-y-5">
         <img
           className="w-[200px] h-[40px] mx-auto"
@@ -107,7 +107,7 @@ const App = () => {
         </AnimatePresence>
 
         <p className=""></p>
-        <div className="flex justify-center text-white text-lg font-light pt-5">
+        <div className="flex justify-center text-white text-lg font-light pt-2">
           <img className="h-4 lg:h-5" src={Assets.QuillAI} alt="QuillAI" />
         </div>
         <div className="flex justify-center items-center text-white">
