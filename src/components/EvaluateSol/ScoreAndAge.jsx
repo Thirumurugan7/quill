@@ -14,18 +14,18 @@ const ScoreAndAge = ({ totalScore, tokenAge }) => {
 
   return (
     <div className='flex gap-4'>
-      <div className="text-[8px] lg:text-sm">
+      <div className="text-sm">
         <p>Overall Score: </p> 
         <p 
-          className='h-6 lg:h-12 w-60px] lg:w-[110px] rounded-[4px] flex justify-center lg:text-2xl font-semibold items-center' 
+          className='h-12 w-[110px] rounded-[4px] flex justify-center text-2xl font-semibold items-center' 
           style={{ backgroundColor: getBackgroundColor(totalScore) }} // Set background color dynamically
         >
           {totalScore}%
         </p>
       </div>
-      <div className="text-[8px] lg:text-sm">
+      <div className="text-sm">
         <p>Token Age: </p>
-        <p className='h-6 lg:h-12 w-60px] lg:w-[110px] bg-[#FFFFFF]/10 rounded-[4px] flex justify-center lg:text-2xl font-medium items-center'>
+        <p className='h-12 w-[110px] bg-[#FFFFFF]/10 rounded-[4px] flex justify-center text-2xl font-medium items-center'>
           {tokenAge}
         </p>
       </div>

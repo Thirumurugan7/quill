@@ -41,10 +41,10 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen lg:h-screen bg-cover bg-center bricolage-font pb-6 bg-custom-bg jost flex justify-center items-center pt-3">
+    <div className="min-h-screen bg-cover bg-center bricolage-font pb-6 bg-custom-bg jost flex justify-center items-center pt-3">
       <div className="p-3 space-y-5">
         <img
-          className="h-[25px] w-[140px] lg:w-[200px] lg:h-[40px] mx-auto lg:mx-auto"
+          className="w-[200px] h-[40px] mx-auto"
           src={Assets.QuillCheckLogo}
           alt="Quill Check Logo"
         />
