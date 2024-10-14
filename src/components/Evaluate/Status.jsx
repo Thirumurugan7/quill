@@ -25,12 +25,12 @@ const Status = ({ totalScore, tokenAge, honeypotStatus, owner }) => {
 
   return (
     <div>
-      <div className="flex gap-1 lg:gap-4 text-[8px] lg:text-sm">
-        <div className="space-y-2 lg:space-y-3">
+      <div className="flex gap-4 text-sm">
+        <div className="space-y-3">
           <div className="">
             <p className='text-[#DDDDDD]'>Last Known Status:</p>
-            <div className="bg-[#FFFFFF]/10 h-6 lg:h-10 w-16 lg:w-fit rounded-[8px] p-[1px] lg:p-[10px] flex items-center gap-1 lg:gap-2">
-              <img className='h-4 lg:h-6' src={Assets.Token} alt="" />
+            <div className="bg-[#FFFFFF]/10 h-10 w-fit rounded-[8px] p-[10px] flex items-center gap-2">
+              <img className='h-6' src={Assets.Token} alt="" />
               <p>{honeypotStatus}</p>
             </div>
           </div>
@@ -44,7 +44,7 @@ const Status = ({ totalScore, tokenAge, honeypotStatus, owner }) => {
           <div className="w-fit">
             <p className='text-[#DDDDDD]'>Overall Score:</p>
             <div 
-              className=" h-5 lg:h-10 w-full rounded-[8px] flex justify-center items-center lg:mx-auto" 
+              className=" h-10 w-full rounded-[8px] flex justify-center items-center mx-auto" 
               style={{ backgroundColor: getBackgroundColor(totalScore) }} // Set background color dynamically
             >
               <p className='text-base font-semibold'>{totalScore}%</p>
