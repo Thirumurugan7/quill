@@ -16,7 +16,7 @@ const Info = ({ holdersCount, currentLiquidity, lpHolders, buyTax, sellTax, tran
                 </div>
                 <div className="border-l-2 border-white/10 mx-5 self-stretch"></div>
                 <div className="">
-                    <p>Current Liquidity</p>
+                    <p className=''>Current Liquidity</p>
                     <div className=" flex justify-center gap-1 items-center">
                         <img className='h-4' src={Assets.Shield} alt="" />
                         <p className=' font-semibold text-xs'>${currentLiquidity}</p>
