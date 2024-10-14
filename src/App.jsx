@@ -19,23 +19,23 @@ const App = () => {
       setEmpty(true);
       return;
     }
-  
+
     // Check the token address length for other tokens
     if (selectedToken !== 'SOL' && tokenAddress.length !== 42) {
       setEmpty(true);
       return;
     }
-  
+
     // Check if no token is selected
     if (selectedToken === '') {
       setButtonclick(true);
       return;
     }
-  
+
     setShowReport(true); // Show EvaluateReport or EvaluateSol when Check is clicked
   };
-  
-  
+
+
   const handleBackClick = () => {
     setShowReport(false); // Show SelectToken when Back is clicked
   };
@@ -105,13 +105,13 @@ const App = () => {
             </motion.div>
           )}
         </AnimatePresence>
-
-        <p className=""></p>
-        <div className="flex justify-center text-white text-lg font-light pt-2">
-          <img className="h-4 lg:h-5" src={Assets.QuillAI} alt="QuillAI" />
-        </div>
-        <div className="flex justify-center items-center text-white">
-          Powered by Winks.fun
+        <div className="space-y-1">
+          <div className="flex justify-center text-white text-lg font-light">
+            <img className="h-5" src={Assets.QuillAI} alt="QuillAI" />
+          </div>
+          <div className="flex justify-center items-center text-white">
+            Powered by Winks.fun
+          </div>
         </div>
       </div>
     </div>
