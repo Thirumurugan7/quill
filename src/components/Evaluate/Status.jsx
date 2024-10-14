@@ -43,7 +43,7 @@ const Status = ({ totalScore, tokenAge, honeypotStatus, owner }) => {
           </div>
           <div className="w-fit">
             <p className='text-[#DDDDDD]'>Token Age:</p>
-            <p className='text-center'>{tokenAge} Years</p>
+            <p className='text-center'>{tokenAge} </p>
           </div>
         </div>
 

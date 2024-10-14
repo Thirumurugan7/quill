@@ -16,29 +16,31 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
   const [ercerror, setErcerror] = useState(false)
 
   const calculateAge = (dateString) => {
-    // Split the input date string into day, month, and year
     if (ercerror) {
-      return
+      return;
     }
+  
     const [day, month, year] = dateString.split('/').map(Number);
-
-    // Create a Date object from the given date
-    const birthDate = new Date(year, month - 1, day); // month - 1 because months are zero-indexed in JavaScript
-
-    // Get the current date
+    const birthDate = new Date(year, month - 1, day);
     const today = new Date();
-
-    // Calculate the age
-    let age = today.getFullYear() - birthDate.getFullYear();
-
-    // Adjust age if the birthday hasn't occurred yet this year
-    const monthDifference = today.getMonth() - birthDate.getMonth();
-    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
+  
+    // Calculate the age in milliseconds
+    const ageInMilliseconds = today - birthDate;
+  
+    // Calculate age in years, months, and days
+    const ageInYears = Math.floor(ageInMilliseconds / (1000 * 60 * 60 * 24 * 365.25));
+    const ageInMonths = Math.floor(ageInMilliseconds / (1000 * 60 * 60 * 24 * 30));
+    const ageInDays = Math.floor(ageInMilliseconds / (1000 * 60 * 60 * 24));
+  
+    if (ageInYears > 0) {
+      return `${ageInYears} years`;
+    } else if (ageInMonths > 0) {
+      return `${ageInMonths} months`;
+    } else {
+      return `${ageInDays} days`;
     }
-
-    return age;
   };
+  
 
   const fetchTokenInfo = async () => {
     setLoading(true);
@@ -114,7 +116,6 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
 
   let tokenAge = 'Unknown';
   if (valueFetch) {
-
     const ageInMilliseconds = currentDate - tokenCreationDate;
     const ageInYears = ageInMilliseconds / (1000 * 60 * 60 * 24 * 365.25);
     // tokenAge = `${Math.floor(ageInYears)} years`;
@@ -134,7 +135,7 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
   console.log(criticalPoint, riskyPoint, mediumPoint, neutralPoint);
 
   const holdersCount = parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.holdersDescription?.holdersCount?.number);
-  const currentLiquidity = parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.totalLpSupplyInUsd?.number);
+  const currentLiquidity = (!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.totalLpSupplyInUsd?.number);
   const lpHolders = parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.lpHolderCount?.number);
   const pairs = parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.pairByPairInformation[0]?.numberOfPairs);
 
