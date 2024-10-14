@@ -150,10 +150,15 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
   const honeypotStatus = !ercerror && valueFetch?.honeypotDetails?.isTokenHoneypot === 1 ? "Honeypot" : "Not a Honeypot";
 
   return (
+    <div className="flex justify-center">
     <div
-      className="bg-[#18162099]/60 rounded-[10px] backdrop-filter h-full backdrop-blur-sm w-[250px] lg:w-[460px] mx-auto jost text-white"
-      style={{ boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.5)' }}
-    >
+    className="bg-[#18162099]/60 rounded-[10px] backdrop-filter h-full backdrop-blur-sm w-full mx-3 jost text-white"
+    style={{ boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.5)' }}
+  >
+    {/* // <div
+    //   className="bg-[#18162099]/60 rounded-[10px] backdrop-filter h-full backdrop-blur-sm w-[250px] lg:w-[460px] mx-3 jost text-white"
+    //   style={{ boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.5)' }}
+    // > */}
       {
         !ercerror && <> <div className="bg-[#181B2E] rounded-t-[10px] p-[10px] lg:p-[15px] px-[10px] lg:px-[20px]">
           <div className="flex justify-between items-center">
@@ -262,6 +267,7 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
 
         </div>
       }
+    </div>
     </div>
   );
 };
