@@ -151,11 +151,11 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
 
   return (
     <div
-      className="bg-[#18162099]/60 rounded-[10px] backdrop-filter h-[90%] backdrop-blur-sm w-[460px] mx-auto jost text-white"
+      className="bg-[#18162099]/60 rounded-[10px] backdrop-filter h-full backdrop-blur-sm w-[250px] lg:w-[460px] mx-auto jost text-white"
       style={{ boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.5)' }}
     >
       {
-        !ercerror && <> <div className="bg-[#181B2E] rounded-t-[10px] p-[5px] px-[20px]">
+        !ercerror && <> <div className="bg-[#181B2E] rounded-t-[10px] p-[10px] lg:p-[15px] px-[10px] lg:px-[20px]">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
               {/* Skeleton for Avatar and Token Name */}
@@ -168,7 +168,7 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
               ) : (
                 <>
                   <img className='h-5' src={valueFetch?.tokenInformation?.generalInformation?.tokenImageLink || tokenImages[selectedToken]} alt="Avatar" />
-                  <p className="text-lg text-center">{valueFetch?.tokenInformation?.generalInformation?.tokenName || 'Token Name'}</p>
+                  <p className="text-sm lg:text-lg text-center">{valueFetch?.tokenInformation?.generalInformation?.tokenName || 'Token Name'}</p>
                   <p className='text-xs'>({valueFetch?.tokenInformation?.generalInformation.tokenSymbol || 'Symbol'})</p>
                 </>
               )}
@@ -200,11 +200,13 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
                 </span>
               )
             )}
-            {loading ? <Skeleton width={200} /> : (tokenAddress || 'Enter Token Address')}
+            <span className='overflow-scroll lg:overflow-visible scrollbar-hide '>
+          {loading ? <Skeleton width={200} /> : ( tokenAddress || 'Enter Token Address')}
+        </span>
           </p>
         </div>
 
-          <div className="px-[20px] pt-[20px] pb-[10px]">
+          <div className="px-[10px] lg:px-[20px] pt-[10px] lg:pt-[20px] pb-[5px] lg:pb-[10px]">
             <div className="flex items-center justify-between h-full">
               {/* Status and Report */}
               {loading ? (
@@ -215,7 +217,7 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
               ) : (
                 <>
                   <Status totalScore={totalScore} tokenAge={tokenAge} honeypotStatus={honeypotStatus} owner={owner} />
-                  <div className="border-l-2 border-white/10 mx-5 self-stretch"></div>
+                  <div className="border-l-2 border-white/10 lg:mx-5 self-stretch"></div>
                   <Report critical={criticalPoint} risky={riskyPoint} medium={mediumPoint} neutral={neutralPoint} />
                 </>
               )}
@@ -247,9 +249,9 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
       }
 
       {
-        ercerror && <div className='m-5 flex flex-col justify-center items-center py-3 pt-4'>  <p className=' text-3xl  flex gap-4  '> <img src={
+        ercerror && <div className='m-5 flex flex-col justify-center items-center py-3 pt-4'>  <p className=' text-3xl  flex lg:gap-4  '> <img src={
           "https://check.quillai.network/icons/X.svg"} className='w-7 ' alt='x' /> ERC-20 contract not be found at the given address </p> <br />
-          <div className='flex justify-center items-center px-5 ' >
+          <div className='flex justify-center items-center lg:px-5 ' >
             Please confirm the contract is ERC-20 and on the correct chain.
 
 

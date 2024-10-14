@@ -111,7 +111,7 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
     // const honeypotStatus = !ercerror && valueFetch?.honeypotDetails?.isTokenHoneypot === 1 ? "Honeypot" : "Not a Honeypot";
 
     return (
-        <div className="bg-[#18162099]/60 rounded-[10px] backdrop-filter h-[90%] backdrop-blur-sm w-[460px] mx-auto jost text-white" style={{ boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.5)' }}>
+        <div className="bg-[#18162099]/60 rounded-[10px] backdrop-filter h-[90%] backdrop-blur-sm w-[250px] lg:w-[460px] mx-auto jost text-white" style={{ boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.5)' }}>
             {!ercerror ? (
                 <>
                     <div className="bg-[#181B2E] rounded-t-[10px] p-[5px] px-[20px]">
@@ -122,12 +122,12 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
                                 ) : (
                                     <>
                                         <img
-                                            className="h-5"
+                                            className="h-4 lg:h-5"
                                             src={valueFetch?.tokenInformation?.generalInformation?.tokenImageLink || '/default-token.png'}
                                             alt="Token"
                                         />
-                                        <p className="text-lg text-center">{valueFetch?.tokenInformation?.generalInformation?.tokenName || 'Token Name'}</p>
-                                        <p className="text-xs">({valueFetch?.tokenInformation?.generalInformation?.tokenSymbol || 'Symbol'})</p>
+                                        <p className="text-[12px] lg:text-lg text-center">{valueFetch?.tokenInformation?.generalInformation?.tokenName || 'Token Name'}</p>
+                                        <p className="text-[12px] lg:text-xs">({valueFetch?.tokenInformation?.generalInformation?.tokenSymbol || 'Symbol'})</p>
                                     </>
                                 )}
                             </div>
@@ -142,11 +142,13 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
                                 </div>
                             </div>
                         </div>
-                        <p className="text-xs text-white flex items-center  w-72 overflow-scroll scrollbar-hide">
+                        <p className="text-xs text-white flex items-center  lg:w-72 ">
                             {selectedToken && (
-                                <span className="mr-2 bg-[#300D5A] p-[6px] px-4 rounded-[5px] text-sm flex justify-center gap-1 items-center"><img className='h-4' src={Assets.SOL} alt="" />{selectedToken}</span>
+                                <span className="mr-2 bg-[#300D5A] p-[6px] px-4 rounded-[5px] text-sm flex justify-center gap-1 items-center"><img className='h-2 lg:h-4' src={Assets.SOL} alt="" />{selectedToken}</span>
                             )}
-                            {loading ? <Skeleton width={150} /> : tokenAddress || 'Enter Token Address'}
+                            
+                            {loading ? <Skeleton width={150} /> : <p className='overflow-scroll lg:overflow-visible scrollbar-hide'> {tokenAddress} </p> || 'Enter Token Address'}
+                            
                         </p>
                     </div>
                     <div className="p-[20px] flex items-center">

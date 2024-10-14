@@ -41,10 +41,10 @@ const App = () => {
   };
 
   return (
-    <div className="h-screen bg-cover bg-center bricolage-font pb-6 bg-custom-bg jost flex justify-center items-center pt-3">
-      <div className="p-3 space-y-3">
+    <div className="min-h-screen lg:h-screen bg-cover bg-center bricolage-font pb-6 bg-custom-bg jost flex justify-center items-center pt-3">
+      <div className="p-3 space-y-5">
         <img
-          className="w-[200px] h-[40px] mx-auto"
+          className="h-[25px] w-[140px] lg:w-[200px] lg:h-[40px] mx-auto lg:mx-auto"
           src={Assets.QuillCheckLogo}
           alt="Quill Check Logo"
         />
@@ -108,7 +108,7 @@ const App = () => {
 
         <p className=""></p>
         <div className="flex justify-center text-white text-lg font-light pt-5">
-          <img className="h-5" src={Assets.QuillAI} alt="QuillAI" />
+          <img className="h-4 lg:h-5" src={Assets.QuillAI} alt="QuillAI" />
         </div>
         <div className="flex justify-center items-center text-white">
           Powered by Winks.fun
