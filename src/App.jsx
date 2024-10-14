@@ -14,12 +14,19 @@ const App = () => {
   const [buttonclick, setButtonclick] = useState(false);
 
   const handleCheckClick = () => {
-    // Check the token address length only if the selected token is not SOL
+    // Check if the selected token is SOL and validate the address length
+    if (selectedToken === 'SOL' && tokenAddress.length !== 44) {
+      setEmpty(true);
+      return;
+    }
+  
+    // Check the token address length for other tokens
     if (selectedToken !== 'SOL' && tokenAddress.length !== 42) {
       setEmpty(true);
       return;
     }
   
+    // Check if no token is selected
     if (selectedToken === '') {
       setButtonclick(true);
       return;
@@ -28,7 +35,7 @@ const App = () => {
     setShowReport(true); // Show EvaluateReport or EvaluateSol when Check is clicked
   };
   
-
+  
   const handleBackClick = () => {
     setShowReport(false); // Show SelectToken when Back is clicked
   };

@@ -14,7 +14,7 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
 
     const calculateAge = (dateString) => {
         if (ercerror) {
-            return '-';
+            return;
         }
         const [day, month, year] = dateString.split('/').map(Number);
         const birthDate = new Date(year, month - 1, day);
@@ -45,15 +45,19 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
 
             if (res.status === 200) {
                 const data = await res.json();
+        
                 setValueFetch(data);
+                console.log('====================================');
+                console.log(data);
                 if (data.errorStatus === 420) {
-                    setErcerror(true);
-                } else {
-                    setOwner(data?.tokenInformation?.generalInformation?.ownerAddress);
+                    console.log('====================================');
+                    console.log(data);
+                    console.log('====================================');
+                  setErcerror(true)
                 }
-            } else {
-                setError('Failed to fetch token information');
-            }
+                setOwner(data?.tokenInformation?.generalInformation?.ownerAddress)
+                console.log('====================================');
+              }
         } catch (error) {
             setError('Error fetching token information');
         } finally {
@@ -69,10 +73,10 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
 
     const totalScore = !ercerror ? formatValue(parseFloat(valueFetch?.honeypotDetails?.overAllScorePercentage)) : '-';
     const tokenCreationDate = !ercerror ? valueFetch?.tokenInformation?.generalInformation?.tokenCreationDate : null;
-    const currentDate = new Date();
-    let buyTax = 0;
-    let sellTax = 0;
-    let transferTax = 0;
+    // const currentDate = new Date();
+    // let buyTax = 0;
+    // let sellTax = 0;
+    // let transferTax = 0;
 
     if (valueFetch?.honeypotDetails?.length > 0) {
         const details = valueFetch.honeypotDetails[0];
@@ -87,17 +91,11 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
         tokenAge = formatValue(tokenAge); // Format token age
     }
 
-    const criticalPoint = !ercerror ? formatValue(valueFetch?.tokenInformation.totalChecksInformation?.aggregatedCount[0].count) : '-';
-    const riskyPoint = !ercerror ? formatValue(valueFetch?.tokenInformation.totalChecksInformation?.aggregatedCount.find(item => item.name === "RISKY")?.count) : '-';
-    const mediumPoint = !ercerror ? formatValue(valueFetch?.tokenInformation.totalChecksInformation?.aggregatedCount.find(item => item.name === "Medium Risk")?.count) : '-';
-    const neutralPoint = !ercerror ? formatValue(valueFetch?.tokenInformation.totalChecksInformation?.aggregatedCount.find(item => item.name === "Neutral")?.count) : '-';
-
-
 
     const holdersCount = formatValue(parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.holdersDescription?.holdersCount?.number));
     const currentLiquidity = formatValue(parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.totalLpSupplyInUsd?.number));
     const lockedLiquidity = formatValue(parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.liquidityLockedDetails?.totalLiquidityPercentageLocked?.number));
-    const lpHolders = formatValue(parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.lpHolderCount?.number));
+    // const lpHolders = formatValue(parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.lpHolderCount?.number));
     const pairs = formatValue(parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.tradingPairCount?.number));
 
     const mintingAuth = valueFetch?.codeChecks?.codeCheckDescription?.ownershipPermissionsDescription[0]?.heading === "Token Minting Authority is Enabled";
@@ -105,12 +103,12 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
     const metadataStatus = valueFetch?.codeChecks?.codeCheckDescription?.ownershipPermissionsDescription[2]?.heading === "Token Metadata is Mutable";
     const transferFeeStatus = valueFetch?.codeChecks?.codeCheckDescription?.ownershipPermissionsDescription[3]?.risk === 0;
 
-    const critical = !ercerror ? formatValue(valueFetch?.riskCategories?.critical) : '-';
-    const risky = !ercerror ? formatValue(valueFetch?.riskCategories?.risky) : '-';
-    const medium = !ercerror ? formatValue(valueFetch?.riskCategories?.medium) : '-';
-    const neutral = !ercerror ? formatValue(valueFetch?.riskCategories?.neutral) : '-';
+    // const critical = !ercerror ? formatValue(valueFetch?.riskCategories?.critical) : '-';
+    // const risky = !ercerror ? formatValue(valueFetch?.riskCategories?.risky) : '-';
+    // const medium = !ercerror ? formatValue(valueFetch?.riskCategories?.medium) : '-';
+    // const neutral = !ercerror ? formatValue(valueFetch?.riskCategories?.neutral) : '-';
 
-    const honeypotStatus = !ercerror && valueFetch?.honeypotDetails?.isTokenHoneypot === 1 ? "Honeypot" : "Not a Honeypot";
+    // const honeypotStatus = !ercerror && valueFetch?.honeypotDetails?.isTokenHoneypot === 1 ? "Honeypot" : "Not a Honeypot";
 
     return (
         <div className="bg-[#18162099]/60 rounded-[10px] backdrop-filter h-[90%] backdrop-blur-sm w-[460px] mx-auto jost text-white" style={{ boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.5)' }}>
@@ -162,11 +160,11 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
                                 <>
                                     <ScoreAndAge totalScore={totalScore} tokenAge={tokenAge} owner={owner} />
                                     <div className="border-b-2 border-white/10 my-5 self-stretch"></div>
-                                    <Report 
-                                        mintingAuth={mintingAuth} 
-                                        freezingAuth={freezingAuth} 
-                                        metadataStatus={metadataStatus} 
-                                        transferFeeStatus={transferFeeStatus} 
+                                    <Report
+                                        mintingAuth={mintingAuth}
+                                        freezingAuth={freezingAuth}
+                                        metadataStatus={metadataStatus}
+                                        transferFeeStatus={transferFeeStatus}
                                     />
                                 </>
                             )}
@@ -191,6 +189,21 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
                     <p className="text-lg">{error || 'No Data Found!'}</p>
                 </div>
             )}
+
+            {
+                ercerror && <div className='m-5 flex flex-col justify-center items-center py-3 pt-4'>  <p className=' text-3xl  flex gap-4  '> <img src={
+                    "https://check.quillai.network/icons/X.svg"} className='w-7 ' alt='x' /> ERC-20 contract not be found at the given address </p> <br />
+                    <div className='flex justify-center items-center px-5 ' >
+                        Please confirm the contract is ERC-20 and on the correct chain.
+
+
+
+                    </div><div >
+                        <button className='underline' onClick={onBackClick}>Go back</button>
+                    </div>
+
+                </div>
+            }
         </div>
     );
 };

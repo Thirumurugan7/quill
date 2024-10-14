@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css'; // Ensure to import the CSS for Skeleton
+import 'react-loading-skeleton/dist/skeleton.css'; 
 import Assets from './Assets';
 import Status from './Evaluate/Status';
 import Report from './Evaluate/Report';
