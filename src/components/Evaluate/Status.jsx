@@ -59,7 +59,7 @@ const Status = ({ totalScore, tokenAge, honeypotStatus, owner }) => {
           </div>
           <div className="w-fit cursor-pointer" onClick={handleCopy}>
             <p className='text-[#DDDDDD]'>Ownership:</p>
-            {owner !== '' && owner.slice(0, 5)} {owner !== '' && "..."} {owner !== '' && owner.slice(-5)}
+            {owner !== '' && owner.slice(0, 4)} {owner !== '' && "..."} {owner !== '' && owner.slice(-4)}
             {owner === '' && <img className='h-3 lg:h-4 mx-auto' src={Assets.X} alt="X" />}
           </div>
         </div>
