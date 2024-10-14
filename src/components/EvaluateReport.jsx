@@ -210,7 +210,7 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
           </p>
         </div>
 
-          <div className="px-[10px] lg:px-[20px] pt-[10px] lg:pt-[20px] pb-[5px] lg:pb-[10px]">
+          <div className="px-[20px] pt-[20px] pb-[10px]">
             <div className="flex items-center justify-between h-full">
               {/* Status and Report */}
               {loading ? (
