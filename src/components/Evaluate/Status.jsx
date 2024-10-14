@@ -21,7 +21,11 @@ const Status = ({ totalScore, tokenAge, honeypotStatus, owner }) => {
         console.error('Failed to copy: ', err);
       });
     }
-  }
+  };
+
+  // Set background color and asset based on honeypot status
+  const honeypotBgColor = honeypotStatus === "Honeypot" ? '#B40E00' : '#FFFFFF10';
+  const honeypotIcon = honeypotStatus === "Honeypot" ? Assets.Honeypot : Assets.Token;
 
   return (
     <div>
@@ -29,8 +33,11 @@ const Status = ({ totalScore, tokenAge, honeypotStatus, owner }) => {
         <div className="space-y-3">
           <div className="">
             <p className='text-[#DDDDDD]'>Last Known Status:</p>
-            <div className="bg-[#FFFFFF]/10 h-10 w-fit rounded-[8px] p-[10px] flex items-center gap-2">
-              <img className='h-6' src={Assets.Token} alt="" />
+            <div
+              className="h-10 w-fit rounded-[8px] p-[10px] flex items-center gap-2"
+              style={{ backgroundColor: honeypotBgColor }} // Set honeypot background color
+            >
+              <img className='h-6' src={honeypotIcon} alt="" /> {/* Set honeypot asset */}
               <p>{honeypotStatus}</p>
             </div>
           </div>
@@ -43,16 +50,16 @@ const Status = ({ totalScore, tokenAge, honeypotStatus, owner }) => {
         <div className="space-y-3">
           <div className="w-fit">
             <p className='text-[#DDDDDD]'>Overall Score:</p>
-            <div 
-              className=" h-10 w-full rounded-[8px] flex justify-center items-center mx-auto" 
+            <div
+              className="h-10 w-full rounded-[8px] flex justify-center items-center mx-auto"
               style={{ backgroundColor: getBackgroundColor(totalScore) }} // Set background color dynamically
             >
               <p className='text-base font-semibold'>{totalScore}%</p>
             </div>
           </div>
           <div className="w-fit cursor-pointer" onClick={handleCopy}>
-            <p className='text-[#DDDDDD] ' >Ownership:</p>
-            {owner !== '' && owner.slice(0, 5)} {owner !== '' && "..."} {owner !== '' && owner.slice(-5)} 
+            <p className='text-[#DDDDDD]'>Ownership:</p>
+            {owner !== '' && owner.slice(0, 5)} {owner !== '' && "..."} {owner !== '' && owner.slice(-5)}
             {owner === '' && <img className='h-3 lg:h-4 mx-auto' src={Assets.X} alt="X" />}
           </div>
         </div>
