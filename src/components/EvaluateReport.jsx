@@ -44,7 +44,7 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
     setLoading(true);
     try {
       const res = await fetch(
-        `https://check-api.quillai.network/api/v1/tokens/ui/information/${tokenAddress}?chainId=${chainId}&distinctId=$device:1921f267d7f65c-06d6ddb090976-1a525637-122897-1921f267d7f65c&generateGptInput=true&generateChecksDescription=true`,
+        `https://check-api.quillai.network/api/v1/tokens/frontend/information/${tokenAddress}?chainId=${chainId}&distinctId=$device:1921f267d7f65c-06d6ddb090976-1a525637-122897-1921f267d7f65c&generateGptInput=true&generateChecksDescription=true`,
         {
           headers: {
             'x-api-key': '6muNpTyDvR9hGJBuG1muh5VlKE74V6Ik4cWNBmg0',
