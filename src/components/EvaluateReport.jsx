@@ -103,15 +103,14 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
   let buyTax = 0;
   let sellTax = 0;
   let transferTax = 0;
-
-
-
-  if (valueFetch?.honeypotDetails?.length > 0) {
-    const details = valueFetch.honeypotDetails[0];
+  
+  if (valueFetch?.honeypotDetails) {
+    const details = valueFetch.honeypotDetails;
     buyTax = parseFloat(details?.buyTax?.number || "0");
     sellTax = parseFloat(details?.sellTax?.number || "0");
     transferTax = parseFloat(details?.transferTax?.number || "0");
   }
+  
 
   let tokenAge = 'Unknown';
   if (valueFetch) {
