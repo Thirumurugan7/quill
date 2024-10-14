@@ -114,7 +114,7 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
         <div className="bg-[#18162099]/60 rounded-[10px] backdrop-filter h-full backdrop-blur-sm w-[460px] mx-auto jost text-white" style={{ boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.5)' }}>
             {!ercerror ? (
                 <>
-                    <div className="bg-[#181B2E] rounded-t-[10px] p-[5px] px-[20px]">
+                    <div className="bg-[#181B2E] rounded-t-[10px] p-[15px] px-[20px]">
                         <div className="flex justify-between items-center">
                             <div className="flex items-center gap-2">
                                 {loading ? (
@@ -151,7 +151,7 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
                             
                         </p>
                     </div>
-                    <div className="p-[20px] flex items-center">
+                    <div className="p-[15px] px-[20px] flex items-center">
                         <div className=" items-center h-full">
                             {loading ? (
                                 <>
