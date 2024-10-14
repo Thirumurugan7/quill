@@ -5,7 +5,7 @@ const Info = ({ holdersCount, currentLiquidity, lpHolders, buyTax, sellTax, tran
     return (
         <div className="text-sm space-y-4">
             <div className=" flex justify-between">
-                <div className="">
+                <div className="text-center">
                     <p>Holders</p>
                     <div className=" flex justify-center gap-1 items-center">
                         <img className='h-4' src={Assets.Exclamatory} alt="" />
@@ -14,7 +14,7 @@ const Info = ({ holdersCount, currentLiquidity, lpHolders, buyTax, sellTax, tran
                             </p>
                     </div>
                 </div>
-                <div className="border-l-2 border-white/10 mx-5 self-stretch"></div>
+                <div className="border-l-2 border-white/10 mx-3 self-stretch"></div>
                 <div className="">
                     <p className=''>Current Liquidity</p>
                     <div className=" flex justify-center gap-1 items-center">
@@ -22,7 +22,7 @@ const Info = ({ holdersCount, currentLiquidity, lpHolders, buyTax, sellTax, tran
                         <p className=' font-semibold text-xs'>${currentLiquidity}</p>
                     </div>
                 </div>
-                <div className="border-l-2 border-white/10 mx-5 self-stretch"></div>
+                <div className="border-l-2 border-white/10 mx-3 self-stretch"></div>
                 <div className="">
                     <p>LP Holders</p>
                     <div className=" flex justify-center gap-1 items-center">
@@ -30,7 +30,7 @@ const Info = ({ holdersCount, currentLiquidity, lpHolders, buyTax, sellTax, tran
                         <p className=' font-semibold text-md'>{lpHolders}</p>
                     </div>
                 </div>
-                <div className="border-l-2 border-white/10 mx-5 self-stretch"></div>
+                <div className="border-l-2 border-white/10 mx-3 self-stretch"></div>
                 <div className="">
                     <p>Trading Pairs</p>
                     <div className=" flex justify-center gap-1 items-center">
