@@ -98,6 +98,14 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
     Base: Assets.Base,
   };
 
+  const buttonColors = {
+    ETH: '#000000',
+    BSC: '#CA8A04',
+    POL: '#8247E5',
+    Base: '#1A54F4',
+    SOL: '#300D5A',
+  };
+
   const totalScore = !ercerror && parseFloat(valueFetch?.honeypotDetails?.overAllScorePercentage);
   const tokenCreationDate = !ercerror && valueFetch?.tokenInformation?.generalInformation?.tokenCreationDate;
 
@@ -202,7 +210,10 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
               <Skeleton width={250} />
             ) : (
               selectedToken && (
-                <span className="mr-2 bg-black p-[6px] px-4 rounded-[5px] text-sm flex gap-1 items-center">
+                <span
+                  className="mr-2 p-[6px] px-4 rounded-[5px] text-sm flex gap-1 items-center"
+                  style={{ backgroundColor: buttonColors[selectedToken] || '#000000' }}  // Fallback to black if no token selected
+                >
                   {tokenImages[selectedToken] && (
                     <img src={tokenImages[selectedToken]} alt={selectedToken} className="h-3" />
                   )}
