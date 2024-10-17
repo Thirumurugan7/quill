@@ -15,10 +15,11 @@ const App = () => {
 
   const handleCheckClick = () => {
     // Check if the selected token is SOL and validate the address length
-    if (selectedToken === 'SOL' && tokenAddress.length !== 44) {
+    if (selectedToken === 'SOL' && (tokenAddress.length < 43 || tokenAddress.length > 47)) {
       setEmpty(true);
       return;
     }
+    
 
     // Check the token address length for other tokens
     if (selectedToken !== 'SOL' && tokenAddress.length !== 42) {

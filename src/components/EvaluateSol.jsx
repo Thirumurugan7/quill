@@ -93,8 +93,8 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
 
 
     const holdersCount = formatValue(parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.holdersDescription?.holdersCount?.number));
-    const currentLiquidity = formatValue(parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.totalLpSupplyInUsd?.number));
-    const lockedLiquidity = formatValue(parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.liquidityLockedDetails?.totalLiquidityPercentageLocked?.number));
+    const currentLiquidity = ((!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.totalLpSupplyInUsd?.number));
+    const lockedLiquidity = (!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.percentDistributed?.locked?.balanceFormatted);
     // const lpHolders = formatValue(parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.lpHolderCount?.number));
     const pairs = formatValue(parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.tradingPairCount?.number));
 
@@ -126,8 +126,8 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
                                             src={valueFetch?.tokenInformation?.generalInformation?.tokenImageLink || '/default-token.png'}
                                             alt="Token"
                                         />
-                                        <p className="text-lg text-center">{valueFetch?.tokenInformation?.generalInformation?.tokenName || 'Token Name'}</p>
-                                        <p className="text-xs">({valueFetch?.tokenInformation?.generalInformation?.tokenSymbol || 'Symbol'})</p>
+                                        <p className="text-xl text-center">{valueFetch?.tokenInformation?.generalInformation?.tokenName || 'Token Name'}</p>
+                                        <p className="text-sm font-light">({valueFetch?.tokenInformation?.generalInformation?.tokenSymbol || 'Symbol'})</p>
                                     </>
                                 )}
                             </div>

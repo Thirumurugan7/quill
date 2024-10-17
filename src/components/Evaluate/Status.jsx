@@ -24,8 +24,8 @@ const Status = ({ totalScore, tokenAge, honeypotStatus, owner }) => {
   };
 
   // Set background color and asset based on honeypot status
-  const honeypotBgColor = honeypotStatus === "Honeypot" ? '#B40E00' : '#FFFFFF10';
-  const honeypotIcon = honeypotStatus === "Honeypot" ? Assets.Honeypot : Assets.Token;
+  const honeypotBgColor = honeypotStatus === "Is a Honeypot" ? '#B40E00' : '#FFFFFF10';
+  const honeypotIcon = honeypotStatus === "Is a Honeypot" ? Assets.Honeypot : Assets.Token;
 
   return (
     <div>
@@ -50,12 +50,26 @@ const Status = ({ totalScore, tokenAge, honeypotStatus, owner }) => {
         <div className="space-y-3">
           <div className="w-fit">
             <p className='text-[#DDDDDD]'>Overall Score:</p>
-            <div
+            {/* <div
               className="h-10 w-full rounded-[8px] flex justify-center items-center mx-auto"
               style={{ backgroundColor: getBackgroundColor(totalScore) }} // Set background color dynamically
             >
               <p className='text-base font-semibold'>{totalScore}%</p>
-            </div>
+            </div> */}
+            <p
+          className="h-10 w-full rounded-[8px] flex justify-center items-center mx-auto"
+          style={{ backgroundColor: getBackgroundColor(totalScore) }} // Set background color dynamically
+        >
+          <span className="flex items-baseline">
+            <span className="text-xl font-semibold">
+              {Math.floor(Number(totalScore) || 0)}{/* Integer part */}
+            </span>
+            <span className="text-sm font-medium">
+              .{(Number(totalScore) || 0).toFixed(2).split('.')[1]}{/* Decimal part */}
+            </span>
+            <span className="text-sm font-medium">%</span> {/* Percent symbol */}
+          </span>
+        </p>
           </div>
           <div className="w-fit cursor-pointer" onClick={handleCopy}>
             <p className='text-[#DDDDDD]'>Ownership:</p>

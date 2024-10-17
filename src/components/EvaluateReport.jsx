@@ -147,7 +147,9 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
 
 
   // Honeypot status message
-  const honeypotStatus = !ercerror && valueFetch?.honeypotDetails?.isTokenHoneypot === 1 ? "Honeypot" : "Not a Honeypot";
+  const honeypotStatus = !ercerror && valueFetch?.honeypotDetails?.isPairHoneypot === 1 
+  ? "Is a Honeypot" 
+  : "Not a Honeypot";
 
   return (
     <div className="flex justify-center">
@@ -173,8 +175,8 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
               ) : (
                 <>
                   <img className='h-5' src={valueFetch?.tokenInformation?.generalInformation?.tokenImageLink || tokenImages[selectedToken]} alt="Avatar" />
-                  <p className="text-sm lg:text-lg text-center">{valueFetch?.tokenInformation?.generalInformation?.tokenName || 'Token Name'}</p>
-                  <p className='text-xs'>({valueFetch?.tokenInformation?.generalInformation.tokenSymbol || 'Symbol'})</p>
+                  <p className="text-xl text-center">{valueFetch?.tokenInformation?.generalInformation?.tokenName || 'Token Name'}</p>
+                  <p className='text-sm font-light'>({valueFetch?.tokenInformation?.generalInformation.tokenSymbol || 'Symbol'})</p>
                 </>
               )}
             </div>

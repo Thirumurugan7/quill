@@ -14,7 +14,7 @@ const Status = ({ holdersCount, currentLiquidity, lockedLiquidity, pairs }) => {
         </div>
         <div className="text-sm">
             <p>Locked Liquidity</p>
-            <p className='text-lg font-bold flex items-center gap-1'><img className='h-4' src={Assets.Shield} ></img> {lockedLiquidity}</p>
+            <p className='text-lg font-bold flex items-center gap-1'><img className='h-4' src={Assets.Shield} ></img> ${lockedLiquidity}</p>
         </div>
         <div className="text-sm">
             <p>Trading Pairs</p>

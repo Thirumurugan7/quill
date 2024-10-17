@@ -15,13 +15,23 @@ const ScoreAndAge = ({ totalScore, tokenAge }) => {
   return (
     <div className='flex gap-4'>
       <div className="text-sm">
-        <p>Overall Score: </p> 
-        <p 
-          className='h-12 w-[110px] rounded-[4px] flex justify-center text-2xl font-semibold items-center' 
+        <p>Overall Score: </p>
+        <p
+          className="h-12 w-[110px] rounded-[4px] text-2xl font-semibold flex justify-center items-center"
           style={{ backgroundColor: getBackgroundColor(totalScore) }} // Set background color dynamically
         >
-          {totalScore}%
+          <span className="flex items-baseline">
+            <span className="text-2xl font-semibold">
+              {Math.floor(Number(totalScore) || 0)}{/* Integer part */}
+            </span>
+            <span className="text-lg font-medium">
+              .{(Number(totalScore) || 0).toFixed(2).split('.')[1]}{/* Decimal part */}
+            </span>
+            <span className="text-lg font-medium">%</span> {/* Percent symbol */}
+          </span>
         </p>
+
+
       </div>
       <div className="text-sm">
         <p>Token Age: </p>

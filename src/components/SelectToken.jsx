@@ -43,11 +43,11 @@ const SelectToken = ({ onCheckClick, setSelectedToken, setTokenAddress, setChain
     >
       <p className="text-white text-[20px] text-center">Evaluate Any Token</p>
       <div className="mt-6 space-y-4">
-        <div className="flex justify-center space-x-6">
+        <div className="flex justify-center space-x-2">
           {['ETH', 'BSC', 'POL', 'Base', 'SOL'].map((token, index) => (
             <button
               key={token}
-              className={`px-2 py-2 rounded-md flex items-center text-sm gap-1 ${
+              className={` p-2 px-4 rounded-md flex items-center text-sm gap-1 ${
                 selectedButton === index + 1
                   ? 'text-white  font-normal'
                   : 'border border-white  text-white opacity-60 font-light'
@@ -90,10 +90,10 @@ const SelectToken = ({ onCheckClick, setSelectedToken, setTokenAddress, setChain
             Select the chain
           </div>
         )}
-        <div className="flex justify-end rounded-[20px]">
+        <div className="flex justify-end rounded-[20px] ">
           <button
             onClick={onCheckClick}
-            className="bg-[#007AFF] hover:bg-[#007AFF]/70 rounded-[5px] text-white p-2 px-6 ml-auto text-xl border-y border-y-[#86AFFF]"
+            className="bg-[#007AFF] hover:bg-[#007AFF]/70 rounded-[5px] text-white p-2 text-lg w-[120px] ml-auto border-y border-y-[#86AFFF]"
           >
             Check
           </button>
