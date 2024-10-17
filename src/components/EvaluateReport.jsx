@@ -41,6 +41,9 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
     }
   };
   
+  const formatValue = (value) => {
+    return isNaN(value) ? '-' : value;
+};
 
   const fetchTokenInfo = async () => {
     setLoading(true);
@@ -136,7 +139,7 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
 
   const holdersCount = parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.holdersDescription?.holdersCount?.number);
   const currentLiquidity = (!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.totalLpSupplyInUsd?.number);
-  const lpHolders = parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.lpHolderCount?.number);
+  const lpHolders = formatValue(parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.lpHolderCount?.number));
   const pairs = parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.pairByPairInformation[0]?.numberOfPairs);
 
   const critical = !ercerror && valueFetch?.riskCategories?.critical || 0;

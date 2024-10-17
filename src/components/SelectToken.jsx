@@ -41,8 +41,8 @@ const SelectToken = ({ onCheckClick, setSelectedToken, setTokenAddress, setChain
       className="bg-[#18162099]/60 rounded-[10px] backdrop-filter backdrop-blur-sm w-[460px] mx-auto p-[30px] jost"
       style={{ boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.5)' }}
     >
-      <p className="text-white text-[20px] text-center">Evaluate Any Token</p>
-      <div className="mt-6 space-y-4">
+      <p className="text-white text-[30px] text-center">Evaluate Any Token</p>
+      <div className="mt-4 space-y-4">
         <div className="flex justify-center space-x-2">
           {['ETH', 'BSC', 'POL', 'Base', 'SOL'].map((token, index) => (
             <button
