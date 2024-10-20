@@ -93,10 +93,16 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
 
 
     const holdersCount = formatValue(parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.holdersDescription?.holdersCount?.number));
+    const holdersCountRisk = ((!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.holdersDescription?.holdersCount?.risk));
+
     const currentLiquidity = ((!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.totalLpSupplyInUsd?.number));
+    const currentLiquidityRisk = ((!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.totalLpSupplyInUsd?.risk));
+
     const lockedLiquidity = (!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.percentDistributed?.locked?.balanceFormatted);
+    const lockedLiquidityRisk = (!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.percentDistributed?.locked?.risk);
     // const lpHolders = formatValue(parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.lpHolderCount?.number));
     const pairs = formatValue(parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.tradingPairCount?.number));
+    const pairsRisk = formatValue(parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.tradingPairCount?.risk));
 
     const mintingAuth = valueFetch?.codeChecks?.codeCheckDescription?.ownershipPermissionsDescription[0]?.heading === "Token Minting Authority is Enabled";
     const freezingAuth = valueFetch?.codeChecks?.codeCheckDescription?.ownershipPermissionsDescription[1]?.heading === "Token Freezing Authority is Enabled";
@@ -180,7 +186,7 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
                                 </>
                             ) : (
                                 <>
-                                    <Status holdersCount={holdersCount} currentLiquidity={currentLiquidity} lockedLiquidity={lockedLiquidity} pairs={pairs} owner={owner} />
+                                    <Status holdersCount={holdersCount} holdersCountRisk={holdersCountRisk} currentLiquidity={currentLiquidity} currentLiquidityRisk={currentLiquidityRisk} lockedLiquidity={lockedLiquidity} lockedLiquidityRisk={lockedLiquidityRisk} pairs={pairs} pairsRisk={pairsRisk} owner={owner} />
                                 </>
                             )}
                         </div>
