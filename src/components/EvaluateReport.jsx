@@ -223,7 +223,7 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
             ) : (
               selectedToken && (
                 <span
-                  className="mr-2 p-[6px] px-4 rounded-[5px] text-sm flex gap-1 items-center"
+                  className="mr-2 p-1 px-2 rounded-[5px] text-sm flex gap-1 items-center"
                   style={{ backgroundColor: buttonColors[selectedToken] || '#000000' }}  // Fallback to black if no token selected
                 >
                   {tokenImages[selectedToken] && (
