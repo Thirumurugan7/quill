@@ -15,6 +15,10 @@ import Shield from "../assets/icons/Shield.png"
 import X from "../assets/icons/X.png"
 import XVoilet from "../assets/icons/XVoilet.png"
 import ThumbUp from "../assets/icons/Thumbup.svg"
+import Tick from "../assets/icons/Tick.png"
+import Star from "../assets/icons/Star.png"
+import DotOutline from "../assets/icons/DotOutline.png"
+
 
 const Assets = {
   QuillCheckLogo,
@@ -33,7 +37,10 @@ const Assets = {
   Shield,
   X,
   XVoilet,
-  ThumbUp
+  ThumbUp,
+  Tick,
+  Star,
+  DotOutline
 };
 
 export default Assets;

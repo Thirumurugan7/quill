@@ -123,6 +123,11 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
     sellTax = parseFloat(details?.sellTax?.number || "0");
     transferTax = parseFloat(details?.transferTax?.number || "0");
   }
+
+  const buyTaxRisk = (valueFetch?.honeypotDetails?.buyTax?.risk);
+  const sellTaxRisk = (valueFetch?.honeypotDetails?.buyTax?.risk);
+  const transferTaxRisk = (valueFetch?.honeypotDetails?.buyTax?.risk);
+  
   
 
   let tokenAge = 'Unknown';
@@ -146,9 +151,16 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
   console.log(criticalPoint, riskyPoint, mediumPoint, neutralPoint);
 
   const holdersCount = parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.holdersDescription?.holdersCount?.number);
+  const holdersCountRisk = (!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.holdersDescription?.holdersCount?.risk);
+
   const currentLiquidity = (!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.totalLpSupplyInUsd?.number);
+  const currentLiquidityRisk = (!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.totalLpSupplyInUsd?.risk);
+
   const lpHolders = formatValue(parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.lpHolderCount?.number));
-  const pairs = parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.pairByPairInformation[0]?.numberOfPairs);
+  const lpHoldersRisk = formatValue(parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.lpHolderCount?.risk));
+
+  const pairs = parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.tradingPairCount?.number);
+  const pairsRisk = parseFloat(!ercerror && valueFetch?.marketChecks?.marketCheckDescription?.liquidityDescription?.aggregatedInformation?.tradingPairCount?.risk);
 
   const critical = !ercerror && valueFetch?.riskCategories?.critical || 0;
   const risky = !ercerror && valueFetch?.riskCategories?.risky || 0;
@@ -252,12 +264,19 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
             ) : (
               <Info
                 holdersCount={formatNumber(holdersCount)}
+                holdersCountRisk={holdersCountRisk}
                 currentLiquidity={currentLiquidity}
+                currentLiquidityRisk={currentLiquidityRisk}
                 lpHolders={lpHolders}
+                lpHoldersRisk={lpHoldersRisk}
                 buyTax={buyTax}
+                buyTaxRisk={buyTaxRisk}
                 sellTax={sellTax}
+                sellTaxRisk={sellTaxRisk}
                 transferTax={transferTax}
+                transferTaxRisk={transferTaxRisk}
                 pairs={pairs}
+                pairsRisk={pairsRisk}
               />
             )}
 

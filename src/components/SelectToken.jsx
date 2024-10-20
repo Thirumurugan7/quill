@@ -27,13 +27,19 @@ const SelectToken = ({ onCheckClick, setSelectedToken, setTokenAddress, setChain
     setButtonclick(false);
   };
 
+  // const handleInputChange = (e) => {
+  //   const inputValue = e.target.value;
+  //   const lowercasedValue = selectedButton === 5 ? inputValue : inputValue.toLowerCase(); 
+  //   setInputValue(lowercasedValue);
+  //   setTokenAddress(lowercasedValue); 
+  //   setempty(false);
+  // };
+
   const handleInputChange = (e) => {
-    const inputValue = e.target.value;
-    const lowercasedValue = selectedButton === 5 ? inputValue : inputValue.toLowerCase(); 
-    setInputValue(lowercasedValue);
-    setTokenAddress(lowercasedValue); 
+    setInputValue(e.target.value);
+    setTokenAddress(e.target.value); // Update token address
     setempty(false);
-  };
+  }
     
 
   return (
@@ -43,11 +49,11 @@ const SelectToken = ({ onCheckClick, setSelectedToken, setTokenAddress, setChain
     >
       <p className="text-white text-[30px] text-center">Evaluate Any Token</p>
       <div className="mt-4 space-y-4">
-        <div className="flex justify-center space-x-2">
+        <div className="flex justify-center space-x-3">
           {['ETH', 'BSC', 'POL', 'Base', 'SOL'].map((token, index) => (
             <button
               key={token}
-              className={` p-2 px-4 rounded-md flex items-center text-sm gap-1 ${
+              className={` p-2 rounded-md flex justify-center items-center text-sm gap-1 w-[72px] h-[36px] ${
                 selectedButton === index + 1
                   ? 'text-white  font-normal'
                   : 'border border-white  text-white opacity-60 font-light'
