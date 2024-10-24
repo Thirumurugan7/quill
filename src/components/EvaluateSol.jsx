@@ -4,6 +4,7 @@ import Skeleton from 'react-loading-skeleton'; // Assuming you have this install
 import Report from './EvaluateSol/Report';
 import Status from './EvaluateSol/Status';
 import Assets from './Assets';
+import Solana from "../assets/icons/Solana.svg"
 
 const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
     const [loading, setLoading] = useState(false);
@@ -45,7 +46,7 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
 
             if (res.status === 200) {
                 const data = await res.json();
-        
+
                 setValueFetch(data);
                 console.log('====================================');
                 console.log(data);
@@ -53,11 +54,11 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
                     console.log('====================================');
                     console.log(data);
                     console.log('====================================');
-                  setErcerror(true)
+                    setErcerror(true)
                 }
                 setOwner(data?.tokenInformation?.generalInformation?.ownerAddress)
                 console.log('====================================');
-              }
+            }
         } catch (error) {
             setError('Error fetching token information');
         } finally {
@@ -129,7 +130,7 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
                                     <>
                                         <img
                                             className="h-5"
-                                            src={valueFetch?.tokenInformation?.generalInformation?.tokenImageLink || '/default-token.png'}
+                                            src={valueFetch?.tokenInformation?.generalInformation?.tokenImageLink || Solana}
                                             alt="Token"
                                         />
                                         <p className="text-xl text-center">{valueFetch?.tokenInformation?.generalInformation?.tokenName || 'Token Name'}</p>
@@ -152,9 +153,9 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
                             {selectedToken && (
                                 <span className="mr-2 bg-[#300D5A] p-[6px] px-4 rounded-[5px] text-sm flex justify-center gap-1 items-center"><img className='h-2 lg:h-4' src={Assets.SOL} alt="" />{selectedToken}</span>
                             )}
-                            
+
                             {loading ? <Skeleton width={150} /> : <p className='overflow-visible scrollbar-hide'> {tokenAddress} </p> || 'Enter Token Address'}
-                            
+
                         </p>
                     </div>
                     <div className="p-[15px] px-[20px] flex items-center">
@@ -203,7 +204,6 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
                     "https://check.quillai.network/icons/X.svg"} className='w-7 ' alt='x' /> ERC-20 contract not be found at the given address </p> <br />
                     <div className='flex justify-center items-center px-5 ' >
                         Please confirm the contract is ERC-20 and on the correct chain.
-
 
 
                     </div><div >

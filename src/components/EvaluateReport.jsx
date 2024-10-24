@@ -5,6 +5,7 @@ import Assets from './Assets';
 import Status from './Evaluate/Status';
 import Report from './Evaluate/Report';
 import Info from './Evaluate/Info';
+import Polygon from "../assets/icons/Polygon.png"
 import axios from 'axios';
 
 const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) => {
@@ -168,7 +169,7 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
   const neutral = !ercerror && valueFetch?.riskCategories?.neutral || 0;
 
 
-
+const tokenImage =  tokenImages[selectedToken]
   // Honeypot status message
   const honeypotStatus = !ercerror && valueFetch?.honeypotDetails?.isPairHoneypot === 1 
   ? "Is a Honeypot" 
@@ -197,7 +198,9 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress, chainId }) =
                 </>
               ) : (
                 <>
-                  <img className='h-5' src={valueFetch?.tokenInformation?.generalInformation?.tokenImageLink || tokenImages[selectedToken]} alt="Avatar" />
+                {selectedToken && (
+                  <img className='h-5' src={valueFetch?.tokenInformation?.generalInformation?.tokenImageLink || tokenImages[selectedToken] || Polygon} alt="Avatar" />
+                )}
                   <p className="text-xl text-center max-w-44 truncate">{valueFetch?.tokenInformation?.generalInformation?.tokenName || 'Token Name'}</p>
                   <p className='text-sm font-light'>({valueFetch?.tokenInformation?.generalInformation.tokenSymbol || 'Symbol'})</p>
                 </>
