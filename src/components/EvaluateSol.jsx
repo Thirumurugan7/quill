@@ -133,8 +133,10 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
                                             src={valueFetch?.tokenInformation?.generalInformation?.tokenImageLink || Solana}
                                             alt="Token"
                                         />
+                                        <div className="flex gap-2 items-baseline">
                                         <p className="text-xl text-center">{valueFetch?.tokenInformation?.generalInformation?.tokenName || 'Token Name'}</p>
                                         <p className="text-xs font-light">({valueFetch?.tokenInformation?.generalInformation?.tokenSymbol || 'Symbol'})</p>
+                                        </div>
                                     </>
                                 )}
                             </div>

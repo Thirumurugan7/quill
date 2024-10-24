@@ -201,8 +201,10 @@ const tokenImage =  tokenImages[selectedToken]
                 {selectedToken && (
                   <img className='h-5' src={valueFetch?.tokenInformation?.generalInformation?.tokenImageLink || tokenImages[selectedToken] || Polygon} alt="Avatar" />
                 )}
+                <div className=" flex gap-2 items-baseline">
                   <p className="text-xl text-center max-w-44 truncate">{valueFetch?.tokenInformation?.generalInformation?.tokenName || 'Token Name'}</p>
                   <p className='text-xs font-light'>({valueFetch?.tokenInformation?.generalInformation.tokenSymbol || 'Symbol'})</p>
+                  </div>
                 </>
               )}
             </div>
