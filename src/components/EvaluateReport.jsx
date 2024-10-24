@@ -202,7 +202,7 @@ const tokenImage =  tokenImages[selectedToken]
                   <img className='h-5' src={valueFetch?.tokenInformation?.generalInformation?.tokenImageLink || tokenImages[selectedToken] || Polygon} alt="Avatar" />
                 )}
                   <p className="text-xl text-center max-w-44 truncate">{valueFetch?.tokenInformation?.generalInformation?.tokenName || 'Token Name'}</p>
-                  <p className='text-sm font-light'>({valueFetch?.tokenInformation?.generalInformation.tokenSymbol || 'Symbol'})</p>
+                  <p className='text-xs font-light'>({valueFetch?.tokenInformation?.generalInformation.tokenSymbol || 'Symbol'})</p>
                 </>
               )}
             </div>

@@ -134,7 +134,7 @@ const EvaluateSol = ({ onBackClick, tokenAddress, selectedToken }) => {
                                             alt="Token"
                                         />
                                         <p className="text-xl text-center">{valueFetch?.tokenInformation?.generalInformation?.tokenName || 'Token Name'}</p>
-                                        <p className="text-sm font-light">({valueFetch?.tokenInformation?.generalInformation?.tokenSymbol || 'Symbol'})</p>
+                                        <p className="text-xs font-light">({valueFetch?.tokenInformation?.generalInformation?.tokenSymbol || 'Symbol'})</p>
                                     </>
                                 )}
                             </div>
