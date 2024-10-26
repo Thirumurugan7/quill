@@ -44,16 +44,16 @@ const SelectToken = ({ onCheckClick, setSelectedToken, setTokenAddress, setChain
 
   return (
     <div
-      className="bg-[#18162099]/60 rounded-[10px] backdrop-filter backdrop-blur-sm w-[460px] mx-auto p-[30px] jost"
+      className="bg-[#18162099]/60 rounded-[10px] backdrop-filter backdrop-blur-sm sm:w-[460px] w-[250px] mx-auto p-[10px] sm:p-[30px] jost"
       style={{ boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.5)' }}
     >
-      <p className="text-white text-[30px] text-center">Evaluate Any Token</p>
-      <div className="mt-4 space-y-4">
-        <div className="flex justify-center space-x-3">
+      <p className="text-white sm:text-[30px] text-[18px] text-center">Evaluate Any Token</p>
+      <div className="mt-2 sm:mt-4 space-y-2 sm:space-y-4">
+        <div className="flex justify-center space-x-1 sm:space-x-3">
           {['ETH', 'BSC', 'POL', 'Base', 'SOL'].map((token, index) => (
             <button
               key={token}
-              className={` p-2 rounded-md flex justify-center items-center text-sm gap-1 w-[72px] h-[36px] ${
+              className={` p-2 rounded-md flex justify-center items-center text-sm gap-0 sm:gap-1 w-[50px] sm:w-[72px] h-[36px] ${
                 selectedButton === index + 1
                   ? 'text-white  font-normal'
                   : 'border border-white  text-white opacity-60 font-light'
@@ -75,7 +75,7 @@ const SelectToken = ({ onCheckClick, setSelectedToken, setTokenAddress, setChain
                     : 'transparent') // Reset color on hover leave
               }
             >
-              <img className="h-4" src={Assets[token]} alt={token} /> {token}
+              <img className="h-4 w-auto" src={Assets[token]} alt={token} /><span className=' hidden sm:flex '>{token}</span>
             </button>
           ))}
         </div>
@@ -83,7 +83,7 @@ const SelectToken = ({ onCheckClick, setSelectedToken, setTokenAddress, setChain
           type="text"
           value={inputValue}
           onChange={handleInputChange}
-          className="bg-white w-full h-12 rounded-[5px] text-black p-4"
+          className="bg-white w-full h-8 text-xs sm:text-base sm:h-12 rounded-[5px] text-black p-2 sm:p-4"
           placeholder="Enter token address"
         />
         {empty && (
@@ -99,7 +99,7 @@ const SelectToken = ({ onCheckClick, setSelectedToken, setTokenAddress, setChain
         <div className="flex justify-end rounded-[20px] ">
           <button
             onClick={onCheckClick}
-            className="bg-[#007AFF] hover:bg-[#007AFF]/70 rounded-[5px] text-white p-2 text-lg w-[120px] ml-auto border-y border-y-[#86AFFF]"
+            className="bg-[#007AFF] hover:bg-[#007AFF]/70 rounded-[5px] text-white p-1 sm:p-2 text-sm sm:text-lg w-[80px] sm:w-[120px] ml-auto border-y border-y-[#86AFFF]"
           >
             Check
           </button>

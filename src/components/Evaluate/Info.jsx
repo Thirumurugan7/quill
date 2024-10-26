@@ -43,68 +43,100 @@ const Info = ({
 }) => {
 
     return (
-        <div className="text-sm space-y-4">
-            <div className="flex justify-between">
-                <div className="text-center">
-                    <p>Holders</p>
-                    <div className="flex justify-center gap-1 items-center">
-                        <img className='h-4' src={getRiskIcon(holdersCountRisk)} alt="" />
-                        <p className='font-semibold text-xs'>{holdersCount}</p>
-                    </div>
-                </div>
-                <div className="border-l-2 border-white/10 mx-3 self-stretch"></div>
-                <div>
-                    <p>Current Liquidity</p>
-                    <div className="flex justify-center gap-1 items-center">
-                        <img className='h-4' src={getRiskIcon(currentLiquidityRisk)} alt="" />
-                        <p className='font-semibold text-xs'>${currentLiquidity}</p>
-                    </div>
-                </div>
-                <div className="border-l-2 border-white/10 mx-3 self-stretch"></div>
-                <div>
-                    <p>LP Holders</p>
-                    <div className="flex justify-center gap-1 items-center">
-                        <img className='h-4' src={getRiskIcon(lpHoldersRisk)} alt="" />
-                        <p className='font-semibold text-md'>{lpHolders}</p>
-                    </div>
-                </div>
-                <div className="border-l-2 border-white/10 mx-3 self-stretch"></div>
-                <div>
-                    <p>Trading Pairs</p>
-                    <div className="flex justify-center gap-1 items-center">
-                        <img className='h-4' src={getRiskIcon(pairsRisk)} alt="" />
-                        <p className='font-semibold text-md'>{pairs}</p>
-                    </div>
-                </div>
+      <div className="text-xs sm:text-sm space-y-1 sm:space-y-4">
+        <div className="flex justify-between text-[10px] sm:text-base">
+          <div className="text-center">
+            <p className="">Holders</p>
+            <div className="flex justify-center gap-1 items-center">
+              <img
+                className="h-3 sm:h-4"
+                src={getRiskIcon(holdersCountRisk)}
+                alt=""
+              />
+              <p className="font-semibold text-[10px] sm:text-base">
+                {holdersCount}
+              </p>
             </div>
-
-            <div className="flex justify-center">
-                <div>
-                    <p>Buy Tax</p>
-                    <div className="flex justify-center gap-1 items-center">
-                        <img className='h-4' src={getRiskIcon(buyTaxRisk)} alt="" />
-                        <p className='font-semibold text-md'>{buyTax}%</p>
-                    </div>
-                </div>
-                <div className="border-l-2 border-white/10 mx-10 self-stretch"></div>
-                <div>
-                    <p>Sell Tax</p>
-                    <div className="flex justify-center gap-1 items-center">
-                        <img className='h-4' src={getRiskIcon(sellTaxRisk)} alt="" />
-                        <p className='font-semibold text-md'>{sellTax}%</p>
-                    </div>
-                </div>
-                <div className="border-l-2 border-white/10 mx-10 self-stretch"></div>
-                <div>
-                    <p>Transfer Tax</p>
-                    <div className="flex justify-center gap-1 items-center">
-                        <img className='h-4' src={getRiskIcon(transferTaxRisk)} alt="" />
-                        <p className='font-semibold text-md'>{transferTax}%</p>
-                    </div>
-                </div>
+          </div>
+          <div className="border-l-2 border-white/10 mx-1 sm:mx-3 self-stretch"></div>
+          <div>
+            <p>Current Liquidity</p>
+            <div className="flex justify-center gap-1 items-center">
+              <img
+                className="h-3 sm:h-4"
+                src={getRiskIcon(currentLiquidityRisk)}
+                alt=""
+              />
+              <p className="font-semibold text-[10px] sm:text-base">
+                ${currentLiquidity}
+              </p>
             </div>
+          </div>
+          <div className="border-l-2 border-white/10 mx-1 sm:mx-3 self-stretch"></div>
+          <div>
+            <p>LP Holders</p>
+            <div className="flex justify-center gap-1 items-center">
+              <img
+                className="h-3 sm:h-4"
+                src={getRiskIcon(lpHoldersRisk)}
+                alt=""
+              />
+              <p className="font-semibold text-[10px] sm:text-base">
+                {lpHolders}
+              </p>
+            </div>
+          </div>
+          <div className="border-l-2 border-white/10 mx-1 sm:mx-3 self-stretch"></div>
+          <div>
+            <p>Trading Pairs</p>
+            <div className="flex justify-center gap-1 items-center">
+              <img className="h-3 sm:h-4" src={getRiskIcon(pairsRisk)} alt="" />
+              <p className="font-semibold text-[10px] sm:text-base">{pairs}</p>
+            </div>
+          </div>
         </div>
-    )
+
+        <div className="flex justify-center">
+          <div>
+            <p>Buy Tax</p>
+            <div className="flex justify-center gap-1 items-center">
+              <img
+                className="h-3 sm:h-4"
+                src={getRiskIcon(buyTaxRisk)}
+                alt=""
+              />
+              <p className="font-semibold text-[10px] sm:text-lg">{buyTax}%</p>
+            </div>
+          </div>
+          <div className="border-l-2 border-white/10 mx-2 sm:mx-10 self-stretch"></div>
+          <div>
+            <p>Sell Tax</p>
+            <div className="flex justify-center gap-1 items-center">
+              <img
+                className="h-3 sm:h-4"
+                src={getRiskIcon(sellTaxRisk)}
+                alt=""
+              />
+              <p className="font-semibold text-[10px] sm:text-lg">{sellTax}%</p>
+            </div>
+          </div>
+          <div className="border-l-2 border-white/10 mx-2 sm:mx-10 self-stretch"></div>
+          <div>
+            <p>Transfer Tax</p>
+            <div className="flex justify-center gap-1 items-center">
+              <img
+                className="h-3 sm:h-4"
+                src={getRiskIcon(transferTaxRisk)}
+                alt=""
+              />
+              <p className="font-semibold text-[10px] sm:text-lg">
+                {transferTax}%
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
 }
 
 export default Info;
